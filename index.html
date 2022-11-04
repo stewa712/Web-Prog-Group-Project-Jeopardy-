@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Jeopardy</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+
+	<form id="">	
+		<input type="button" class="Reg" onclick="Register()" value="Register" />
+		<input class="play" type="button" value="Play" />
+		<input class="end" type="button" value="End Game" />
+	</form>
+	
+
+<script>
+
+let register = document.querySelector(".Reg");
+let play = document.querySelector(".play");
+let end = document.querySelector(".end");
+
+play.disabled = true;
+end.disabled = true;
+
+function Register() {
+  	play.disabled = false;
+	end.disabled = false;
+	register.disabled = true;
+	/*
+		CODE TO DISABLE ALL FIELDS WILL BE ADDED HERE
+	*/
+
+	return false;
+}
+
+
+
+</script>
+
+</body>
+</html>
