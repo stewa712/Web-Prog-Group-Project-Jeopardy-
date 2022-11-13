@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeoprady</title>
+
+    <style>
+
+      @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+      body{
+         margin: 0;
+         padding: 0;
+         background-color: rgb(46,46,46);
+         color: rgb(225,225,225); 
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+         font-family: 'Anton', sans-serif;
+      }
+      
+      #game{
+         display: flex;
+         background: rgb(32,32,32);
+      }
+
+      .card{
+         width: 160px;
+         height: 160px;
+         background-color: rgb(26,26,255);
+         border-left: solid rgb(19,19,160) 10px;
+         border-right: solid rgb(11,11,91 ) 10px;
+         border-top: solid rgb(1,61,200) 10px;
+         border-bottom: solid rgb(20,20,89) 10px;
+         text-align: center;
+         font-size: 100px;
+         margin: 5px;
+         padding: 10px;
+         line-height: 120px;
+      }
+
+      
+   
+
+    </style>
+
+
+</head>
+<body>
+
+    <h1>Welcome To Jeoprady</h1>
+
+    <!--Container for the jeoprady board-->
+   <div id="game"></div>
+   <!-- Top section -->
+    
+   <!--Creating div to store information for categories and questions-->
+    <div class="genre-column">
+    <div class="genre-title">
+    </div>
+    </div>
+    <div class="genre-column">
+        <div class="genre-title"></div>
+    </div>
+    <div class="genre-column">
+        <div class="genre-title"></div>
+    </div>
+    <div class="genre-column">
+        <div class="genre-title"></div>
+    </div>
+    <div class="genre-column">
+        <div class="genre-title"></div>
+    </div>
+
+     
+   
+      
+      
+     
+    
+
+    
+    <!--  -------------------------------J A V A S C R I P T--------------------------------------  -->
+
+    <script>
+
+        //Creating variables to initialize game and track player score
+        const game = document.getElementById('game');
+        const scoreDisplay = document.getElementById('score');
+
+        const jeopradyCategories = [
+            {
+                genre: 'General Knowledge',
+                questions: [
+                    {
+                        question: 'Which language has the more native speakers?',
+                        answers: 'English or Spanish',
+                        correct: 'Spanish',
+                        level:    'one',
+                    },                   
+                       
+                    {
+                        question: 'What artist has the most streams on Spotify?',
+                        answers: 'Drake or Justin Beiber',
+                        correct: 'Drake',
+                        level: 'two',                     
+
+                    },
+                ]
+
+            },// End General Knowledge Questions
+            {
+
+                genre: 'Sports',
+                questions:[
+                    {
+                        question: 'Who is the fastest sprinter in the world?',
+                        answers: 'Usain Bolt or Asafa Powell',
+                        correct: 'Usain Bolt',
+                        level: "one",    
+                    },
+                    {
+                        question: 'What artist has the most streams on Spotify?',
+                        answers: 'Drake or Justin Beiber',
+                        correct: 'Drake',
+                        level: 'two',    
+                    },
+                ]
+
+            }//End Sports Question
+            
+        ]//end jeopardyCategories
+
+
+   //Function to add categories to board
+   function addCategorey(categorey){
+
+      const column = document.createElement('div');
+      column.classList.add('genre-column');
+      
+      const genreTitle = document.createElement('div');
+      genreTitle.classList.add('genre-title');
+      genreTitle.innerHTML = categorey.genre;
+
+      column.appendChild(genreTitle);
+      game.append(column);
+
+      categorey.questions.forEach(question => {
+        
+        const card = document.createElement('div');
+        card.classList.add('card');
+        column.append(card);
+
+        //Specifying dollar values of questions
+      if(question.level === 'one'){
+        card.innerHTML = 100;
+      }
+      if(question.level === 'two'){
+        card.innerHTML = 200;
+      }
+
+      })
+
+      
+   }
+
+   jeopradyCategories.forEach(categorey => addCategorey(categorey));
+
+    </script>
+    
+
+
+</body>
+</html>
