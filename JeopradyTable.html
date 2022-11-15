@@ -26,7 +26,7 @@
          display: flex;
          background: rgb(32,32,32);
       }
-
+      
       .card{
          width: 160px;
          height: 160px;
@@ -42,6 +42,21 @@
          line-height: 120px;
       }
 
+      .first-button{
+        background-color: rgb(24,171,24);
+      }
+
+      .second-button{
+        background-color: rgb(24,171,24);
+      }
+
+      .genre-title{
+        background-color: rgb(26,26,255);
+        text-align: center;
+        font-size: 28px;
+        padding: 5px;
+      }
+
       
    
 
@@ -54,26 +69,30 @@
     <h1>Welcome To Jeoprady</h1>
 
     <!--Container for the jeoprady board-->
-   <div id="game"></div>
-   <!-- Top section -->
-    
-   <!--Creating div to store information for categories and questions-->
+   <div id="game">
+        <!--Creating div to store information for categories and questions-->
     <div class="genre-column">
-    <div class="genre-title">
+    <div class="genre-title">   
     </div>
     </div>
     <div class="genre-column">
-        <div class="genre-title"></div>
+    <div class="genre-title"></div>
     </div>
     <div class="genre-column">
-        <div class="genre-title"></div>
+    <div class="genre-title"></div>
     </div>
     <div class="genre-column">
-        <div class="genre-title"></div>
+    <div class="genre-title"></div>
     </div>
     <div class="genre-column">
-        <div class="genre-title"></div>
+    <div class="genre-title"></div>
     </div>
+
+    </div>
+       
+   
+
+    <h2 class="score">SCORE : </h2>
 
      
    
@@ -96,41 +115,203 @@
                 genre: 'General Knowledge',
                 questions: [
                     {
-                        question: 'Which language has the more native speakers?',
-                        answers: 'English or Spanish',
+                        question: "Which language has the more native speakers?",
+                        answers: ["English"," Spanish"],
                         correct: 'Spanish',
                         level:    'one',
                     },                   
                        
                     {
                         question: 'What artist has the most streams on Spotify?',
-                        answers: 'Drake or Justin Beiber',
+                        answers: ['Drake' , 'Rhianna'],
                         correct: 'Drake',
                         level: 'two',                     
 
                     },
+                    {
+                        question: 'Which planet is closest to the sun?',
+                        answers: ['Mercury', 'Venus'],
+                        correct: 'Mercury',
+                        level: 'three',                     
+
+                    },
+                    {
+                        question: ' What is the longest river in the world?',
+                        answers: ['Amazon River' , 'Nile River'],
+                        correct: 'Nile',
+                        level: 'four',                     
+
+                    },
+                    {
+                        question: 'How many teeth does an adult human have? ',
+                        answers: [],
+                        correct: '32',
+                        level: 'five',                     
+
+                    },
                 ]
 
-            },// End General Knowledge Questions
+            },// End General Knowledge Categorey
+
             {
 
                 genre: 'Sports',
                 questions:[
                     {
                         question: 'Who is the fastest sprinter in the world?',
-                        answers: 'Usain Bolt or Asafa Powell',
+                        answers: ['Usain Bolt' , 'Asafa Powell'],
                         correct: 'Usain Bolt',
                         level: "one",    
                     },
                     {
-                        question: 'What artist has the most streams on Spotify?',
-                        answers: 'Drake or Justin Beiber',
-                        correct: 'Drake',
+                        question: 'How many medaly did Jamaica win in the 2016 Olympics',
+                        answers: [11, 14],
+                        correct: '14',
                         level: 'two',    
                     },
+                    {
+                        question: 'Who has won more tennis grand slam titles, Venus Williams or Serena Williams?',
+                        answers: [],
+                        correct: 'Serena Williams',
+                        level: 'three',    
+
+                    },
+                    {
+                        question: 'Which boxer fought against Muhammad Ali and won?',
+                        answers: ['Joe Fraiser', 'George Foreman'],
+                        correct: 'Joe Fraiser',
+                        level: 'four',    
+
+                    },
+                    {
+                        question: 'What is the only sport to be played on the moon?',
+                        answers: [],
+                        correct: 'Golf',
+                        level: 'five',    
+
+                    }
                 ]
 
-            }//End Sports Question
+            },//End Sports Categorey
+
+            {
+                genre: '4 Letter Words',
+                questions:[
+                    {
+                        question: 'Two-Wheeled form of transportation',
+                        answers: ['Clue: Begins with B'],
+                        correct: 'Bike',
+                        level: "one",    
+                    },
+                    {
+                        question: 'Superman can do this to steel in his bare hands',
+                        answers: ['Clue: Begins with B'],
+                        correct: 'Bend',
+                        level: 'two',    
+                    },
+                    {
+                        question: 'From the greek word for deep sleep, it is a deep prolonged unconsciousness',
+                        answers: ['Clue: Begins with C'],
+                        correct: 'Coma',
+                        level: "three", 
+
+                    },
+                    {
+                        question: 'It can be part of your foot your shoe your stocking or your loaf of bread',
+                        answers: ['Clue: Begins with H'],
+                        correct: 'Heel',
+                        level: "four", 
+
+                    },
+                    {
+                        question: 'This joint is formed by the articulation of the femur & the tibia',
+                        answers: [],
+                        correct: 'Knee',
+                        level: "five", 
+
+                    }
+                ] 
+            },//End 4-Letter Categorey
+
+            {
+                genre: 'Jamaica',
+                questions:[
+                    {
+                        question: 'Two-Wheeled form of transportation',
+                        answers: ['Clue: Begins with B'],
+                        correct: 'Bike',
+                        level: "one",    
+                    },
+                    {
+                        question: 'Superman can do this to steel in his bare hands',
+                        answers: ['Clue: Begins with B'],
+                        correct: 'Bend',
+                        level: 'two',    
+                    },
+                    {
+                        question: 'From the greek word for deep sleep, it is a deep prolonged unconsciousness',
+                        answers: ['Clue: Begins with C'],
+                        correct: 'Coma',
+                        level: "three", 
+
+                    },
+                    {
+                        question: 'It can be part of your foot your shoe your stocking or your loaf of bread',
+                        answers: ['Clue: Begins with H'],
+                        correct: 'Heel',
+                        level: "four", 
+
+                    },
+                    {
+                        question: 'This joint is formed by the articulation of the femur & the tibia',
+                        answers: [],
+                        correct: 'Knee',
+                        level: "five", 
+
+                    }
+                ] 
+
+            },//End Nature Categorey
+
+            {
+                genre: 'Utech',
+                questions:[
+                    {
+                        question: 'Two-Wheeled form of transportation',
+                        answers: ['Clue: Begins with B'],
+                        correct: 'Bike',
+                        level: "one",    
+                    },
+                    {
+                        question: 'Superman can do this to steel in his bare hands',
+                        answers: ['Clue: Begins with B'],
+                        correct: 'Bend',
+                        level: 'two',    
+                    },
+                    {
+                        question: "From the greek word for deep sleep, it is a deep prolonged unconsciousness",
+                        answers: ['Clue: Begins with C'],
+                        correct: 'Coma',
+                        level: "three", 
+
+                    },
+                    {
+                        question: "It can be part of your foot your shoe your stocking or your loaf of bread",
+                        answers: ['Clue: Begins with H'],
+                        correct: 'Heel',
+                        level: "four", 
+
+                    },
+                    {
+                        question: 'This joint is formed by the articulation of the femur & the tibia',
+                        answers: [],
+                        correct: 'Knee',
+                        level: "five", 
+
+                    }
+                ] 
+            }
+
             
         ]//end jeopardyCategories
 
@@ -138,7 +319,7 @@
    //Function to add categories to board
    function addCategorey(categorey){
 
-      const column = document.createElement('div');
+      const column = document.createElement("div");
       column.classList.add('genre-column');
       
       const genreTitle = document.createElement('div');
@@ -161,13 +342,94 @@
       if(question.level === 'two'){
         card.innerHTML = 200;
       }
+      if(question.level === 'three'){
+        card.innerHTML = 300;
+      }
+      if(question.level === 'four'){
+        card.innerHTML = 400;
+      }
+      if(question.level === 'five'){
+        card.innerHTML = 500;
+      }
+
+       //Assigning quesiton values to card div
+
+    card.setAttribute('data-question',question.question);
+    card.setAttribute('data-answer-1',question.answers[0]);
+    card.setAttribute('data-answer-2',question.answers[1]);
+    card.setAttribute('data-correct',question.correct);
+    card.setAttribute('data-value',card.getInnerHTML());
+
+
+    //Creating event listner to call flipCard function
+    card.addEventListener('click',flipCard);
 
       })
 
-      
-   }
+
+   }//End addCategories
 
    jeopradyCategories.forEach(categorey => addCategorey(categorey));
+
+
+   //flipCard function to display questions
+   function flipCard(){
+
+    //Clearing div information when card is clicked
+    this.innerHTML ="";
+    this.style.fontSize = "15px";
+    this.style.lineHeight = "30px";
+
+    //Creating variables to store card information
+    const textDisplay = document.createElement("div");
+    textDisplay.classList.add("card-text");
+    textDisplay.innerHTML = this.setAttribute("data-question")
+
+    const firstButton = document.createElement('button');
+    const secondButton = document.createElement('button');
+    firstButton.classList.add('first-button');
+    secondButton.classList.add('second-button');
+
+    //Assiging information from question array to firstButton and secondButton
+    firstButton.innerHTML = this.setAttribute('data-answer-1');
+    secondButton.innerHTML = this.setAttribute('data-answer-2');
+    this.append(textDisplay, firstButton, secondButton);
+
+    const allCards = Array.from(document.querySelector('.card'));
+    allCards.forEach(card => card.removeEventListener('click',flipCard));
+
+   }//End flipCard
+
+   //Altering score based on player answet
+   function getResult(){
+
+    
+
+    const cardOfButton = this.parentElement;
+
+    if(cardOfButton.getAttribute('data-correct') == this.innerHTML){
+        
+        score = score + parseInt(cardOfButton.getAttribute('data-value'));
+
+        while(cardOfButton, firstChild){
+
+            cardOfButton.removeChild(cardOfButton.lastChild);
+
+        }
+        cardOfButton.innerHTML = cardOfButton.getAttribute('data-value');
+
+    }else{
+
+        score = score - parseInt(cardOfButton.getAttribute('data-value'));
+
+    }
+
+   
+       
+    
+
+
+   }
 
     </script>
     
