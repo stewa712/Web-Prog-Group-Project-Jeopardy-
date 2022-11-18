@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TImer</title>
+	<style type="text/css">
+		h1{
+			font-family:Lucida Console;
+			font-size:15em;
+		}
+		
+		.container{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+	<h1 id="timer">60</h1>
+	</div>
+
+	<script type="text/javascript">
+		var counter=60;
+
+		setInterval( function (){
+			//Decrement the counter
+			counter--;
+			if (counter>=0) {
+				document.getElementById('timer').innerHTML=counter;
+
+			}
+			
+			//Set interval to thousand
+		},1000)
+	</script>
+
+</body>
+</html>
