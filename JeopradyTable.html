@@ -57,6 +57,18 @@
         padding: 5px;
       }
 
+      h2{
+			font-family:Lucida Console;
+			font-size:5em;
+		}
+		
+		.container{
+			position: absolute;
+			top: 10%;
+			left: 5%;
+			transform: translate(-50%,-50%);
+		}
+
       
    
 
@@ -66,14 +78,20 @@
 </head>
 <body>
 
+        
     <h1>Welcome To Jeoprady</h1>
+    <p> <button type="button" id="endgame" onclick="top.window.close();">End Game</button> </p>
 
+    <div class="container">
+        <h2 id="timer"></h1>
+        </div>
+    
     <!--Container for the jeoprady board-->
    <div id="game"></div>  
        
    
 
-    <h2 class="score">SCORE : </h2>  
+   <h2>SCORE:$ <span id="score"></span></h2>
       
       
      
@@ -83,6 +101,8 @@
     <!--  -------------------------------J A V A S C R I P T--------------------------------------  -->
 
     <script>
+
+        window.alert("Welcome to Jeopardy");
 
         //Creating variables to initialize game and track player score
         const game = document.getElementById('game');
@@ -94,37 +114,67 @@
                 questions: [
                     {
                         question: "Which language has the more native speakers?",
-                        answers: ["English"," Spanish"],
+                        answers: ['English','Spanish'],
                         correct: 'Spanish',
                         level:    'one',
+
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
                     },                   
                        
                     {
                         question: 'What artist has the most streams on Spotify?',
                         answers: ['Drake' , 'Rhianna'],
                         correct: 'Drake',
-                        level: 'two',                     
+                        level: 'two', 
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     },
                     {
                         question: 'Which planet is closest to the sun?',
                         answers: ['Mercury', 'Venus'],
                         correct: 'Mercury',
-                        level: 'three',                     
+                        level: 'three', 
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     },
                     {
                         question: ' What is the longest river in the world?',
-                        answers: ['Amazon River' , 'Nile River'],
+                        answers: ['Amazon' , 'Nile'],
                         correct: 'Nile',
-                        level: 'four',                     
+                        level: 'four',
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     },
                     {
                         question: 'How many teeth does an adult human have? ',
-                        answers: [],
-                        correct: '32',
-                        level: 'five',                     
+                        answers: [28,32],
+                        correct: 32,
+                        level: 'five', 
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     },
                 ]
@@ -139,33 +189,63 @@
                         question: 'Who is the fastest sprinter in the world?',
                         answers: ['Usain Bolt' , 'Asafa Powell'],
                         correct: 'Usain Bolt',
-                        level: "one",    
+                        level: "one",  
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
                     },
                     {
                         question: 'How many medals did Jamaica win in the 2016 Olympics?',
                         answers: [11, 14],
                         correct: '14',
-                        level: 'two',    
+                        level: 'two',  
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
                     },
                     {
                         question: 'Who has won more tennis grand slam titles, Venus Williams or Serena Williams?',
-                        answers: [],
+                        answers: ['Venus Williams','Serena Williams'],
                         correct: 'Serena Williams',
-                        level: 'three',    
+                        level: 'three',  
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     },
                     {
                         question: 'Which boxer fought against Muhammad Ali and won?',
                         answers: ['Joe Fraiser', 'George Foreman'],
                         correct: 'Joe Fraiser',
-                        level: 'four',    
+                        level: 'four', 
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     },
                     {
                         question: 'What is the only sport to be played on the moon?',
-                        answers: [],
+                        answers: ['Golf','Football'],
                         correct: 'Golf',
-                        level: 'five',    
+                        level: 'five', 
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     }
                 ]
@@ -179,13 +259,25 @@
                         question: 'Two-Wheeled form of transportation',
                         answers: ['Clue: Begins with B'],
                         correct: 'Bike',
-                        level: "one",    
+                        level: "one", 
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
                     },
                     {
                         question: 'Superman can do this to steel in his bare hands',
                         answers: ['Clue: Begins with B'],
                         correct: 'Bend',
-                        level: 'two',    
+                        level: 'two', 
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
                     },
                     {
                         question: 'From the greek word for deep sleep, it is a deep prolonged unconsciousness',
@@ -193,12 +285,24 @@
                         correct: 'Coma',
                         level: "three", 
 
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
+
                     },
                     {
                         question: 'It can be part of your foot your shoe your stocking or your loaf of bread',
                         answers: ['Clue: Begins with H'],
                         correct: 'Heel',
-                        level: "four", 
+                        level: "four",
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     },
                     {
@@ -206,6 +310,12 @@
                         answers: [],
                         correct: 'Knee',
                         level: "five", 
+
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     }
                 ] 
@@ -215,22 +325,41 @@
                 genre: 'Jamaica',
                 questions:[
                     {
-                        question: 'Two-Wheeled form of transportation',
-                        answers: ['Clue: Begins with B'],
-                        correct: 'Bike',
-                        level: "one",    
+                        question: 'What is the National Dish',
+                        answers: ['Ackee','Jerk Chicken'],
+                        correct: 'Ackee',
+                        level: "one",   
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
                     },
                     {
-                        question: 'Superman can do this to steel in his bare hands',
-                        answers: ['Clue: Begins with B'],
-                        correct: 'Bend',
-                        level: 'two',    
+                        question: 'How many Parishes are in Jamaica',
+                        answers: ['12','14'],
+                        correct: '12',
+                        level: 'two',   
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
                     },
                     {
-                        question: 'From the greek word for deep sleep, it is a deep prolonged unconsciousness',
-                        answers: ['Clue: Begins with C'],
-                        correct: 'Coma',
-                        level: "three", 
+                        question: 'Who was the first Prime Minister',
+                        answers: ['Sangster','Bustamante'],
+                        correct: 'Bustamante',
+                        level: "three",
+                        
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     },
                     {
@@ -239,12 +368,29 @@
                         correct: 'Heel',
                         level: "four", 
 
+                         
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' ,
+                        
+
                     },
                     {
                         question: 'This joint is formed by the articulation of the femur & the tibia',
                         answers: [],
                         correct: 'Knee',
-                        level: "five", 
+                        level: "five",
+                        
+                         
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole',
+                        
+                        
 
                     }
                 ] 
@@ -258,19 +404,39 @@
                         question: 'Two-Wheeled form of transportation',
                         answers: ['Clue: Begins with B'],
                         correct: 'Bike',
-                        level: "one",    
+                        level: "one",  
+                        
+                         
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
                     },
                     {
                         question: 'Superman can do this to steel in his bare hands',
                         answers: ['Clue: Begins with B'],
                         correct: 'Bend',
-                        level: 'two',    
+                        level: 'two',
+                         double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
+
+
                     },
                     {
                         question: "From the greek word for deep sleep, it is a deep prolonged unconsciousness",
                         answers: ['Clue: Begins with C'],
                         correct: 'Coma',
-                        level: "three", 
+                        level: 'three',
+                        
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
 
                     },
                     {
@@ -278,16 +444,27 @@
                         answers: ['Clue: Begins with H'],
                         correct: 'Heel',
                         level: "four", 
+                        double: 'no', 
+
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
+
 
                     },
                     {
                         question: 'This joint is formed by the articulation of the femur & the tibia',
-                        answers: [],
+                        answers: ['Knee', 'Body'],
                         correct: 'Knee',
                         level: "five",
-                        double: 'yes' 
+                        double: 'yes', 
 
-                    }
+                        ddquestion: 'Who was the founder of UTech',
+                        ddanswers: ['Glasspole', 'McKain'],
+                        ddcorrect: 'Glasspole' 
+
+                    },
+                    
                 ] 
             }
 
@@ -295,7 +472,8 @@
         ]//end jeopardyCategories
 
     
-    let score = 0;
+        //Setting initial score to $100
+    let score = 1000;
 
 
    //Function to add categories to board
@@ -318,9 +496,9 @@
         card.classList.add('card');
         column.append(card);
 
-        const double = document.createElement('div');
-        card.classList.add('double');
-        column.append(double);
+        const doublecard = document.createElement('div');
+        doublecard.classList.add('double');
+       //column.append(double);
 
         //Specifying dollar values of questions
       if(question.level === 'one'){
@@ -339,41 +517,141 @@
         card.innerHTML = 500;
       }
 
+      
+
+      
+
        //Assigning quesiton values to card div
 
     card.setAttribute('data-question',question.question);
     card.setAttribute('data-answer-1',question.answers[0]);
     card.setAttribute('data-answer-2',question.answers[1]);
     card.setAttribute('data-correct',question.correct);
-    card.setAttribute('daily-double',question.double)
+    card.setAttribute('daily-double',question.double);
+    card.setAttribute('double-question',question.ddquestion);
+    card.setAttribute('double-answer-1',question.ddanswers[0]);
+    card.setAttribute('double-answer-2',question.ddanswers[1]);
+    card.setAttribute('double-correct',question.ddcorrect);
     card.setAttribute('data-value',card.getInnerHTML());
+
+    
+
+    if(question.double === 'yes'){
+        card.addEventListener('click',dailyDouble);
+        
+    
+    }
+    if(question.double != 'yes'){
+
+        card.addEventListener('click',flipCard);
+    }
+        
+    
+
+    
 
 
     //Creating event listner to call flipCard function
-    card.addEventListener('click',flipCard);
-
+    
       })
 
 
    }//End addCategories
 
+
+
    jeopradyCategories.forEach(categorey => addCategorey(categorey));
+
+
+
+   function dailyDouble(){
+
+    this.innerHTML = "";
+    this.style.fontSize = "15px";
+    this.style.lineHeight = "30px";
+
+    window.alert("DAILY DOUBLE!");
+    var wager = window.prompt("Enter Dollar Amount");
+
+    while(wager>score){
+
+        window.alert("Cannot Wager more than current score");
+        var wager = window.prompt("Enter Dollar Amount");
+
+    }
+    
+    //Creating variables to store card information
+    const textDisplay = document.createElement('div');
+    textDisplay.classList.add('card-text');
+    textDisplay.innerHTML = this.getAttribute('double-question');
+    
+
+    const firstButton = document.createElement('button');
+    const secondButton = document.createElement('button');
+    firstButton.classList.add('first-button');
+    secondButton.classList.add('second-button');
+
+    //Assiging information from question array to firstButton and secondButton
+    firstButton.innerHTML = this.getAttribute('double-answer-1');
+    secondButton.innerHTML = this.getAttribute('double-answer-2');
+    firstButton.addEventListener('click',doubleResult(wager));
+    secondButton.addEventListener('click',doubleResult(wager));
+    this.append(textDisplay, firstButton, secondButton);
+    
+    
+    //Disabling cardFlip function once card is flipped.
+    const allCards = Array.from(document.querySelectorAll('.card'));
+    allCards.forEach(card => card.removeEventListener('click',flipCard));
+
+    const cardOfButton = this.parentElement;
+
+    caardo    
+    
+
+
+    }
 
 
    //flipCard function to display questions
    function flipCard(){
 
     
+    var counter=60;
+
+		setInterval( function (){
+			//Decrement the counter
+			counter--;
+			if (counter>=0) {
+				document.getElementById('timer').innerHTML=counter;
+
+                if(counter==0){
+                
+                var choice = 0;
+                const cardOfButton = this.parentElement;
+
+                textDisplay.innerHTML = "Time's Up";
+                firstButton.innerHTML = "Forfiet";
+                secondButton.innerHTML = "Show Answer";
+                firstButton.addEventListener('click',Forefeit);
+                secondButton.addEventListener('click',checkAnswer); 
+            }
+              
+			}			
+			//Set interval to thousand
+		},100)
+        
+    
     this.innerHTML ="";
     this.style.fontSize = "15px";
     this.style.lineHeight = "30px";
 
-    if()
+    
 
-    //Creating variables to store card information
+    
     const textDisplay = document.createElement('div');
     textDisplay.classList.add('card-text');
     textDisplay.innerHTML = this.getAttribute('data-question');
+    
 
     const firstButton = document.createElement('button');
     const secondButton = document.createElement('button');
@@ -383,21 +661,38 @@
     //Assiging information from question array to firstButton and secondButton
     firstButton.innerHTML = this.getAttribute('data-answer-1');
     secondButton.innerHTML = this.getAttribute('data-answer-2');
-    firstButton.addEventListener('click',getResult);
-    secondButton.addEventListener('click',getResult);
+    firstButton.addEventListener('click',checkAnswer);
+    secondButton.addEventListener('click',checkAnswer);
     this.append(textDisplay, firstButton, secondButton);
-    firstButton.addEventListener('click',getResult);
-    secondButton.addEventListener('click',getResult);
+    
     
     //Disabling cardFlip function once card is flipped.
     const allCards = Array.from(document.querySelectorAll('.card'));
     allCards.forEach(card => card.removeEventListener('click',flipCard));
 
+   
+
    }//End flipCard
 
-   //Altering score based on player answet
-   function getResult(){
+   
+   //Checking if all questions have been answered
 
+   const allCards = Array.from(document.querySelectorAll('.card'));
+
+   if (allCards.childNodes.length === 0) {
+    window.alert("FINAL JEOPARDY");
+    }
+
+  
+
+
+   
+
+   //Altering score based on player answet
+   function checkAnswer(){
+
+    const allCards = Array.from(document.querySelectorAll('.card'));
+    allCards.forEach(card => card.addEventListener('click',flipCard));
     
     const cardOfButton = this.parentElement;
 
@@ -405,25 +700,110 @@
         
         score = score + parseInt(cardOfButton.getAttribute('data-value'));
         scoreDisplay.innerHTML = score;
+        
 
-        while(cardOfButton, firstChild){
+        //Removing card from table
+        while(cardOfButton.firstChild){
 
             cardOfButton.removeChild(cardOfButton.lastChild);
-
-        }
-        cardOfButton.innerHTML = cardOfButton.getAttribute('data-value');
+        }        
 
     }else{
 
+        
         score = score - parseInt(cardOfButton.getAttribute('data-value'));
+        scoreDisplay.innerHTML = score;
 
+        while(cardOfButton.firstChild){
+
+            cardOfButton.removeChild(cardOfButton.lastChild);
+        }
+
+        }//End if
+        cardOfButton.removeEventListener('click', flipCard);    
+
+
+   }//End checkAnswer
+
+
+   function Timeout(){
+
+
+    const allCards = Array.from(document.querySelectorAll('.card'));
+    allCards.forEach(card => card.addEventListener('click',flipCard));
+    
+    const cardOfButton = this.parentElement;
+
+    if(cardOfButton.getAttribute('') == this.innerHTML){
+        
+        score = score + parseInt(cardOfButton.getAttribute('data-value'));
+        scoreDisplay.innerHTML = score;
+        
+
+        //Removing card from table
+        while(cardOfButton.firstChild){
+
+            cardOfButton.removeChild(cardOfButton.lastChild);
+        }        
+
+    }else{
+
+        
+        score = score - parseInt(cardOfButton.getAttribute('data-value'));
+        scoreDisplay.innerHTML = score;
+
+        while(cardOfButton.firstChild){
+
+            cardOfButton.removeChild(cardOfButton.lastChild);
+        }
+
+        }//End if
+        cardOfButton.removeEventListener('click', flipCard); 
+
+           
+
+   }
+
+   function doubleResult(wager){
+
+    
+
+    const allCards = Array.from(document.querySelectorAll('.card'));
+    allCards.forEach(card => card.addEventListener('click',flipCard));
+
+    const cardOfButton = this.parentElement;
+
+    if(cardOfButton.getAttribute('double-correct') == this.innerHTML){
+        
+        score = score + wager;
+        scoreDisplay.innerHTML = score;
+        
+
+        //Removing card from table
+        while(cardOfButton.firstChild){
+
+            cardOfButton.removeChild(cardOfButton.lastChild);
+        }        
+
+    }else{
+
+    
+    score = score - parseInt(cardOfButton.getAttribute('data-value'));
+    scoreDisplay.innerHTML = score;
+
+    while(cardOfButton.firstChild){
+
+        cardOfButton.removeChild(cardOfButton.lastChild);
     }
 
+    }//End if
     cardOfButton.removeEventListener('click', flipCard);    
 
 
-   }//End getResult
+}//End doubleResult
 
+
+   
 
 
 
