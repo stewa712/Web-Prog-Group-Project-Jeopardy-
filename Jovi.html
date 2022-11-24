@@ -186,30 +186,51 @@ body {
 	<p>Please fill in this form to create an account.</p>
    <form name="registrationform" id="form" class="form" 
 	autocomplete="off" >
-		<fieldset name="field2" style="padding:50px;   width:500px;">
-			<label for="fname">First Name:<font color="red">*</font> </label><br>
-			<input type="text" name="fname" id="fname" required /><br><br>
+		<fieldset name="field2" style="padding:50px;   width:600px;">
+		<label for="fname">First Name:<font color="red">*</font> </label><br>
+			<input type="text" id="fname" minlength="4" required /><br><br>
 
 			<label for="lname">Last Name:<font color="red">*</font> </label><br>
-			<input type="text" name="lname" id="lname" required /><br><br>
+			<input type="text" id="lname" required /><br><br>
 
 			<label for="dob">Player's DOB:</label><br>
-			<input type="date" name="plydob" id="dob" /><br><br>
-			
+			<input type="date" name="plydob"  id="plydob" /><br><br>
+
+			<label for="age"> Player's Age:</label> <br>
+			<input type="text" name="age" id="plyage"/>
+			<input type="submit" value="done"onclick="calAge()" /><br><br>
+			<div class="age">
+			<p id="test"></p></div>
 
 			<label for="email">Player's Email:</label><br>
-			<input type="email" name="email" id="email"  /><br><br>
-			
+			<input type="email" name="email" id="email" onkeydown="validateEmail()" /><br><br>
+			<div id="result"></div>
+
 			<p>Please identify your gender<font color="red">*</font> </p>
 
 			
-			<input type="radio" name="gender" value="m" id="male"  />Male <br>
+			<input type="radio" name="gender" value="m" required />Male <br>
 			
-			<input type="radio" name="gender" value="f" id="female" /> Female <br><br>
+			<input type="radio" name="gender" value="f" required /> Female <br><br>
 
 
-			<label for="address">Address(street,city,town,country)</label><br>
-			<input type="text" name="plyaddr" id="address"  size="40" /><br><br>
+			<label for="address">Address:</label><br><br>
+			<!-- STREET -->
+			<label for="address">Street:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- CITY  -->
+			<label for="address">City:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- TOWN -->
+			<label for="address">Town:<font color="red">*</font></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- COUNTRY -->
+			<label for="address">Country:</label>
+			<!-- STREET -->
+			<input type="text" id="plystreet" size="10" />
+			<!-- CITY -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="plycity" size="10"/>
+			<!-- TOWN -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="plytown" size="10" required />
+			<!-- COUNTRY -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="plycountry" size="10" /><br><br><br>
 
 			<label for="edu-level">Educational Level:<font color="red">*</font> </label>
 			<select name="plyedulevel" required>
@@ -217,16 +238,31 @@ body {
 			<option>Secondary</option>
 			<option>Teritary</option>				
 			</select>
+			<br><br>
 
 			<p>Click on the "Choose file" button to upload an image of yourself</p>
-			<input type="file" name="filename" id="filename">
-         <p>
+			<input type="file"  id="filename">
+
+			<button onclick="getUserInput()">Get User Input</button>
+
+			<br><br><br>
+
+
+Player's Result:
+			<textarea id="showpercentage" cols="70" rows="9"></textarea>
+			<br><br>
+
+			 Name of Player's:
+			<textarea id="'showallplayers" cols="70" rows="9"></textarea>
+			<br><br>
+			 <p>
             <button type="button" id="register"  onclick="Register();">Register</button>
             <button type="button" id="playgame"  disabled onclick="PlayGame();">Play</button>
             <button type="button" id="endgame"  disabled onclick="self.close()">End Game</button>
+            <button type="button" id="resultbtn" onclick="getUserInput()">Result</button>
          </p>
-         
-			</fieldset>
+			<button type="reset" id="quit"  value="reset">Quit</button>
+		</fieldset>
 		
 	</form>
 
