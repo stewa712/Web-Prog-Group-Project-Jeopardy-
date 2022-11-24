@@ -188,22 +188,19 @@ body {
 	autocomplete="off" >
 		<fieldset name="field2" style="padding:50px;   width:600px;">
 		<label for="fname">First Name:<font color="red">*</font> </label><br>
-			<input type="text" id="fname" minlength="4" required /><br><br>
+			<input type="text" id="fname"/><br><br>
 
 			<label for="lname">Last Name:<font color="red">*</font> </label><br>
-			<input type="text" id="lname" required /><br><br>
+			<input type="text" id="lname"/><br><br>
 
 			<label for="dob">Player's DOB:</label><br>
 			<input type="date" name="plydob"  id="plydob" /><br><br>
 
 			<label for="age"> Player's Age:</label> <br>
 			<input type="text" name="age" id="plyage"/>
-			<input type="submit" value="done"onclick="calAge()" /><br><br>
-			<div class="age">
-			<p id="test"></p></div>
 
 			<label for="email">Player's Email:</label><br>
-			<input type="email" name="email" id="email" onkeydown="validateEmail()" /><br><br>
+			<input type="email" name="email" id="email"  /><br><br>
 			<div id="result"></div>
 
 			<p>Please identify your gender<font color="red">*</font> </p>
