@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form Register</title>
+
+	<style>
+
+:root {
+   --blue: linear-gradient(180deg, #0120CB 0%, #011BA9 100%);
+   --yellow: #FFE817;
+   --green: #90FF7E;
+   --red: #FFA57E;
+   --spooky-orange: #ad4e08;
+   --spooky-orange-text: #fffec8;
+   --gap: 0.1em;
+   --text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+* {
+   box-sizing: border-box;
+}
+
+html, body {
+   height: 100%;
+}
+
+body {
+   font-family: sans-serif;
+   background: #222;
+   color: white;
+   font-size: 2vw;
+   text-align: center;
+   padding: 1em;
+   background: linear-gradient(180deg, #3131b9 0%, #50506e 100%);
+}
+
+.top-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   text-shadow: var(--text-shadow);
+}
+.score {
+   display: flex;
+   align-items: center;
+}
+.score-count {
+   color: var(--yellow);
+   font-size: 2em;
+   font-weight:bold;
+   margin-left: 0.2em;
+}
+
+.column ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+}
+.board {
+   display: flex;
+   justify-content: space-around;
+}
+.board .column {
+   flex: 1;
+   margin-left: var(--gap);
+   margin-right: var(--gap);
+}
+.board .column header {
+   text-transform: capitalize;
+   background: var(--blue);
+   text-align: center;
+   margin-bottom: 1em;
+   height: 3em;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.board .column li {
+   background: var(--blue);
+   color: var(--yellow);
+   height: 3em;
+   margin-bottom: 0.25em;
+}
+.board .column button {
+   height: 100%;
+   color: inherit;
+   font-size: 2em;
+   -webkit-appearance: none;
+   border: 0;
+   background: none;
+   display: block;
+   width: 100%;
+   cursor: pointer;
+   text-shadow: var(--text-shadow);
+   font-weight:bold;
+}
+.board .column button.used {
+   visibility: hidden;
+}
+
+.card-modal {
+   opacity: 0;
+   pointer-events:none;
+   transition: opacity 0.4s;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   background: var(--blue);
+   position: fixed;
+   font-size: 2vw;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.card-modal.visible {
+   opacity: 1;
+   pointer-events:initial;
+}
+.card-modal.showing-result .result {
+   display:block;
+}
+
+.card-model .clue-text {
+   margin-bottom: 2em;
+}
+
+.result,
+.card-modal.showing-result form {
+   display:none;
+}
+
+.card-modal form {
+   display: flex;
+}
+.card-modal form input[type="text"] {
+   display: block;
+   flex-grow: 1;
+   height: 3em;
+   line-height: 3em;
+   border: 0;
+   text-align: center;
+   border-top-left-radius: 0.4em;
+   border-bottom-left-radius: 0.4em;
+}
+.card-modal form button[type="submit"] {
+   padding-left: 2em;
+   padding-right: 2em;
+   cursor: pointer;
+   font-family: inherit;
+   background: var(--yellow);
+   border: 0;
+   font-size: inherit;
+   border-top-right-radius: 0.4em;
+   border-bottom-right-radius: 0.4em;
+}
+.card-modal-inner {
+   width: 60%;
+   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.result_success, .result_fail {
+   font-size: 2em;
+   font-weight:bold;
+}
+.result_success {
+   color: var(--green);
+}
+.result_fail {
+   color: var(--red);
+}
+.result_correct-answer-text {
+   font-weight:bold;
+   font-size: 2em;
+   display:block;
+   margin-left: 0.1em;
+}
+	</style>
+</head>
+<body>
+	<p id="test"></p>
+	<h1>Player's Registration</h1>
+	<p>Please fill in this form to create an account.</p>
+   <center>
+   <form name="registrationform" id="form" class="form" 
+	autocomplete="off" >
+		<fieldset name="field2" style="padding:50px;   width:600px;">
+		<label for="fname">First Name:<font color="red">*</font> </label><br>
+			<input type="text" id="fname"/><br><br>
+
+			<label for="lname">Last Name:<font color="red">*</font> </label><br>
+			<input type="text" id="lname"/><br><br>
+
+			<label for="dob">Player's DOB:</label><br>
+			<input type="date" name="plydob"  id="dob" /><br><br>
+
+			<label for="age"> Player's Age:</label> <br>
+			<input type="text" name="age" id="plyage"/><br>
+
+			<label for="email">Player's Email:</label><br>
+			<input type="email" name="email" id="email"  /><br>
+			
+			<p>Please identify your gender<font color="red">*</font> </p>
+
+			
+			<input type="radio" name="gender" value="m" required />Male <br>
+			
+			<input type="radio" name="gender" value="f" required /> Female <br><br>
+
+
+			<label for="address">Address</label><br><br>
+
+         <label for="fname">Street:</label><br>
+			<input type="text" id="street"/><br><br>
+
+			<label for="lname">City: </label><br>
+			<input type="text" id="city"/><br><br>
+
+         <label for="fname">Town:<font color="red">*</font> </label><br>
+			<input type="text" id="town"/><br><br>
+
+			<label for="lname">Country: </label><br>
+			<input type="text" id="country"/><br><br>
+			
+
+			<label for="edu-level">Educational Level:<font color="red">*</font> </label>
+			<select name="plyedulevel" required>
+			<option selected>----</option>
+			<option>Secondary</option>
+			<option>Teritary</option>				
+			</select>
+			<br><br>
+
+			<p>Click on the "Choose file" button to upload an image of yourself</p>
+			<input type="file"  id="filename">
+
+			
+			<br><br><br>
+
+
+Player's Result:
+			<textarea id="showpercentage" cols="70" rows="9"></textarea>
+			<br><br>
+
+			 Name of Player's:
+			<textarea id="'showallplayers" cols="70" rows="9"></textarea>
+			<br><br>
+			 <p>
+            <button type="button" id="register"  onclick="Register();">Register</button>
+            <button type="button" id="playgame"  disabled onclick="PlayGame();">Play</button>
+            <button type="button" id="endgame"  disabled onclick="self.close()">End Game</button>
+            <button type="button" id="resultbtn" onclick="findPercentageScore()">Result</button>
+         </p>
+			<button type="reset" id="quit"  value="reset" >Quit</button>
+		</fieldset>
+      
+		
+	</form>
+
+</center>
+
+
+   <!-----------------------------------------J A V A S C R I P T----------------------------------------------->
+	
+<script>
+
+      //Creating playerData array
+		let playerData = [];
+
+      document.getElementById("quit").addEventListener('click',function(){
+    	document.getElementById("resultbtn").disabled = true;
+    	document.getElementById("playgame").disabled = true;
+    	document.getElementById("endgame").disabled = true;
+    	document.getElementById("showpercentage").disabled = true;
+
+    })
+
+    function findPercentageScore(){
+    var fname=document.getElementById("fname").value;
+    var lname=document.getElementById("lname").value;
+    var town=document.getElementById("plytown").value;
+    var todaydate= new Date();
+    var yourScore=document.getElementById("plystreet").value;
+    var totalScore=document.getElementById("plycity").value;
+    var percent = (yourScore * 100 ) / totalScore;
+
+    let options = {weekday:"short",day:"numeric",month:"short",year:"numeric"}
+    document.getElementById("showpercentage").value += "Players Name:" + fname + " " + lname;
+    console.log(todaydate.toLocaleDateString("en-us",options));
+    document.getElementById("showpercentage").value += "\n" + "Player's Town:" + town;
+    document.getElementById("showpercentage").value+= "\n" + " Today Date:" + todaydate.toLocaleDateString("en-us",options)
+    document.getElementById("showpercentage").value += "\n" + "Player's Percentage Score: " + percent.toFixed(2) + "%";
+   
+
+
+    }
+
+
+
+
+      //-----------------------------R E G S I T E R    F U N C T I O N----------------------------------
+
+    function Register() { 
+         
+         //Creating variables to validate user input
+         const fname = document.getElementById('fname');
+         const lname = document.getElementById('lname');
+         const street = document.getElementById('street');
+         const city = document.getElementById('city');
+         const town = document.getElementById('town');
+         const country = document.getElementById('country');
+         const email = document.getElementById('email');
+         
+         const form = document.getElementById('form');
+                
+         const dob = document.getElementById('dob');
+
+         
+
+         //---------------------------J A V A S C R I P T   F O R M    V A L I D  A T I O N---------------------
+
+        
+           
+
+            //Ensuring names are entered and that names are longer than 3 characters
+            if(fname.value === ""||lname.value === ""||fname.value === null||lname.value === null){
+
+               window.alert('Must Enter Name!');
+               click.preventDefault();
+
+            }//End if
+
+
+            if(fname.value.length <= 3||lname.value.length <= 3){
+
+               window.alert('Name Must Be Longer Than 3 Characters!');
+               click.preventDefault();
+
+            }//End if
+
+
+            //Ensuring date of birth is entered
+            if(dob.value === null){
+
+               window.alert("Must Enter Date of Birth!");
+               click.preventDefault();
+
+            }
+
+
+
+            //Validating email
+           var myemail = 'test@SomeEmail.com'
+
+            if (/document.getElementById('email')\s*$/.test(myemail)) {
+               window.alert('Email domain must be @SomeEmail.com');
+               click.preventDefault();
+            }             
+        
+
+         //Ensuring player is appropriate age         
+
+         var minAge = 12;
+         var age = _calcAge();
+            alert("Player age is "+parseInt(age));
+            if (age < minAge) {
+				
+                alert("You are not allowed into the site. The minimum age is 12!");
+               click.preventDefault();
+                           
+            }
+         
+
+         function _calcAge() {
+            var date = new Date(document.getElementById("dob").value);
+            var today = new Date();
+
+            var timeDiff = Math.abs(today.getTime() - date.getTime());
+            var age1 = Math.ceil(timeDiff / (1000 * 3600 * 24)) / 365;
+            return age1;			
+        }        
+            
+                
+                
+         //Disabling HTML form fields
+
+         document.getElementById("fname").disabled = true;
+         document.getElementById("lname").disabled = true;
+         document.getElementById("dob").disabled = true;
+         document.getElementById("email").disabled = true;
+         //document.getElementById("male").disabled = true;
+         //document.getElementById("female").disabled = true;
+         
+         document.getElementById("register").disabled = true;
+         document.getElementById("street").disabled = true;
+         document.getElementById("city").disabled = true;
+         document.getElementById("town").disabled = true;
+         document.getElementById("country").disabled = true;
+
+         //Enabling Play/End Game Buttons
+         document.getElementById("playgame").disabled = false;
+         document.getElementById("endgame").disabled = false;
+
+
+
+         //Saving Player Data to store in PlayersData array
+
+         let player = {
+
+            FirstName: document.getElementById('fname').value,
+            LastName: document.getElementById('lname').value,
+            DateOfBirth: document.getElementById('dob').value,
+            Email: document.getElementById('email').value,
+            Address: document.getElementById('address').value,           
+
+         }
+         playerData.push(player);
+
+         document.querySelector('form').reset();
+
+         console.warn('added',{playerData});
+         console.log(playerData);
+
+         localStorage.setItem('PlayersData',JSON.stringify(playerData));
+
+        }//End function register
+
+
+
+        //----------------------------------P L A Y G A M E    F U N C T I O N----------------------------------
+        //Function PlayGame
+
+        function PlayGame(){
+
+         window.open("JeopradyTable.html");
+                  
+
+        }
+
+	
+    
+
+
+  </script>
+</body>
+</html>

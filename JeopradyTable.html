@@ -475,8 +475,7 @@
     var counter=60;
 
     wageramt = wager;
-    window.alert("WAEGERAMT: "+parseInt(wageramt));
-    
+       
 
     /*
 
@@ -549,10 +548,9 @@
     
    
     if(cardOfButton.getAttribute('daily-double')=='true'){
-        window.alert("DAILY DOUBE GETATT TEST");
         score = score + parseInt(wageramt);
         scoreDisplay.innerHTML = score;
-       cardOfButton.classList.add('correct-answer');
+        
         setTimeout(()  => {
 
             //Removing card from table
